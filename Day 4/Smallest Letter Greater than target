@@ -1,0 +1,21 @@
+char nextGreatestLetter(char* letters, int lettersSize, char target) {
+    int start=0;
+    int end=lettersSize-1;
+    while(start<=end){
+        int mid=start + (end-start)/2;
+        if(letters[start]>target){ //to check first letter
+            return letters[start];
+        }
+        else if(target<letters[mid]){
+            start=start+1; //first letter is checked so no need to again check
+            end=mid; //mid-1 some time false the condition of start<=end
+        }
+        else if(target>=letters[mid]){
+            start=mid+1;
+        }
+        else{
+            return letters[0];
+        }
+        }
+    return letters[0];
+}
