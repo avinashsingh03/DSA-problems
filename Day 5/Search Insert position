@@ -1,0 +1,23 @@
+int searchInsert(int* nums, int numsSize, int target) {
+    int start=0, end=numsSize-1;
+    int ans;
+    while(start<=end){
+        int mid=start + (end-start)/2;
+        if(target==nums[mid]){
+            ans=mid;
+            break;
+        }
+        else if(start==end){   // to return the index position if not found and is to be add in order
+            if(target>nums[start]){
+                ans=mid+1;}
+            else{
+                ans=mid;}
+            break;  
+        }
+        else if(target>nums[mid]){
+            start=mid+1;}
+        else{
+            end=mid-1;}
+    }
+    return ans;
+}
