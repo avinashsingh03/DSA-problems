@@ -1,0 +1,13 @@
+class Solution():
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        lst=s.split(" ") #using inbuilt function to separate substring
+        size=len(lst)-1
+        while(size>=0):
+            if(len(lst[size])!=0):
+                return len(lst[size])
+            size-=1
+s1=Solution()
