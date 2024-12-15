@@ -1,6 +1,6 @@
 bool isPalindrome(int x) {
-    long int rem,sum=0,temp=x;  
-    if(x<0 || (x>0 && x%10==0)){
+    long int rem,sum=0,temp=x;  //appropriate data type is necessary to store large values
+    if(x<0 || (x>0 && x%10==0)){ //handling Edge cases
         return false;
     }
     while(x>0){ // reversing the number
