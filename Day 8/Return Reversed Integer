@@ -3,7 +3,7 @@ public:
     int reverse(int x) {
         int rem;
         long int sum=0;
-        if(x>INT_MAX || x<INT_MIN){ //checking size of Input value
+        if(x>INT_MAX || x<INT_MIN){ //checking size of Input values
             return 0;
         }
         else if(x>=-9 && x<=9){ //handling edge cases
