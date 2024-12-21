@@ -1,0 +1,22 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* middleNode(struct ListNode* head) {
+    struct ListNode* slow=head;
+    struct ListNode* fast=head;
+    while(fast!=NULL && fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    return slow;
+}
+"""
+#approach-
+We will take two pointer , Slow and Fast.
+When slow pointer move one step then fast pointer move two step.
+when fast pointer move at null then we will return mid.
+"""
