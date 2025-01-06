@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int ans, n=boxes.length();
+        vector<int> answer(n); //answer array to store result
+        for(int i=0;i<n;i++){ //selecting a partivular ball
+            ans=0;
+            for(int j=0;j<n;j++){
+                ans+=(boxes[j]-'0')*(abs(i-j)); //counting total no of operation for a particular ball
+            }
+            answer[i]=ans; //updating to answer.
+        }
+        return answer; 
+    }
+};
