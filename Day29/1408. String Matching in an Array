@@ -1,0 +1,14 @@
+class Solution(object):
+    def stringMatching(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        ans=[] // an empty list to store answer.  
+        for i in range(0,len(words)):
+            for j in range(0,len(words)):
+                if(words[i]!=words[j]): //if two words being checked is not equal then following operation will work.
+                    if(words[i] in words[j]):
+                        ans.append(words[i])
+                        break //# No need to check further for this word.
+        return ans        
