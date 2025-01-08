@@ -1,0 +1,15 @@
+class Solution(object):
+    def countPrefixSuffixPairs(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        count=0
+        for i in range(0,len(words)):
+            for j in range(i+1,len(words)):
+                if(words[i]==words[j][:len(words[i])]==words[j][-(len(words[i])):]): //checking word lie in prefix and suffix or not
+                    count+=1
+                else:
+                    continue
+        return count
+        //complexity O(n^2)
