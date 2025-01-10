@@ -1,0 +1,19 @@
+class Solution(object):
+    def wordSubsets(self, words1, words2):
+        """
+        :type words1: List[str]
+        :type words2: List[str]
+        :rtype: List[str]
+        """
+        ans=[]
+        for i in words1:
+            word1=list(i)
+            check=True
+            for j in words2: 
+                word2=list(j)
+                for k in word2: 
+                    if ( (k  not in word1) or (word2.count(k)>word1.count(k))):
+                        check=False
+            if check==True:
+                ans.append(i)
+        return ans 
