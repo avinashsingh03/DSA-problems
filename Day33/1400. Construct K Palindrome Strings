@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool canConstruct(string s, int k) {
+        if (s.length() < k) {
+            return false; // Cannot create more palindromes than the length of the string
+        }
+
+        // Count the frequency of each character
+        vector<int> charCount(26, 0);
+        for (char c : s) {
+            charCount[c - 'a']++;
+        }
+
+        // Count characters with odd frequencies
+        int oddCount = 0;
+        for (int count : charCount) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+        }
+
+        // We need at least `oddCount` palindromes
+        return oddCount <= k;
+    }
+};
