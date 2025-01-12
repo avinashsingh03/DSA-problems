@@ -1,0 +1,50 @@
+class Solution {
+public:
+    bool canBeValid(string s, string locked) {
+        // Length must be even to form valid parentheses
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+
+        // Forward pass: Check for enough opening parentheses
+        int openCount = 0;   // Tracks possible '('
+        int freeCount = 0;   // Tracks unlocked positions
+        for (int i = 0; i < s.length(); ++i) {
+            if (locked[i] == '0') {
+                freeCount++;
+            } else if (s[i] == '(') {
+                openCount++;
+            } else { // s[i] == ')'
+                if (openCount > 0) {
+                    openCount--; // Use a '('
+                } else if (freeCount > 0) {
+                    freeCount--; // Use a free position as '('
+                } else {
+                    return false; // No '(' or free positions to balance
+                }
+            }
+        }
+
+        // Backward pass: Check for enough closing parentheses
+        int closeCount = 0;  // Tracks possible ')'
+        freeCount = 0;       // Reset unlocked positions
+        for (int i = s.length() - 1; i >= 0; --i) {
+            if (locked[i] == '0') {
+                freeCount++;
+            } else if (s[i] == ')') {
+                closeCount++;
+            } else { // s[i] == '('
+                if (closeCount > 0) {
+                    closeCount--; // Use a ')'
+                } else if (freeCount > 0) {
+                    freeCount--; // Use a free position as ')'
+                } else {
+                    return false; // No ')' or free positions to balance
+                }
+            }
+        }
+
+        // If we pass both checks, the string can be made valid
+        return true;
+    }
+};
