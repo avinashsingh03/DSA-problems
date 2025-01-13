@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int minimumLength(string s) {
+        int ans=0;
+        if(s.length()<3){
+            return s.length();
+        }
+        else{
+            vector<int> charcount(26,0);
+\\counting each characters
+            for (char c : s) {
+                charcount[c - 'a']++;
+            }
+\\checking if a character occurs more than 3 times
+            for(int i=0;i<charcount.size();i++){
+                if(charcount[i]>3 && charcount[i]%2==0){
+                    ans+=2;  \\if count is even then at last 2 characters are left
+                }
+                else if(charcount[i]>=3 && charcount[i]%2!=0){
+                    ans+=1;  \\if count is odd then at last 1 character is left
+                }
+                else{
+                    ans+=charcount[i];  \\if count is less than three then it is final answer 
+                }
+            }
+        }
+        return ans;
+    }
+};
