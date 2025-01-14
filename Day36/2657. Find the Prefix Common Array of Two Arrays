@@ -1,0 +1,15 @@
+class Solution(object):
+    def findThePrefixCommonArray(self, A, B):
+        """
+        :type A: List[int]
+        :type B: List[int]
+        :rtype: List[int]
+        """
+        a=set()
+        b=set()
+        ans=[]
+        for i in range(0,len(A)):
+            a.add(A[i])
+            b.add(B[i])
+            ans.append(len(a.intersection(b))) //counting common numbers on or before [i].
+        return ans
