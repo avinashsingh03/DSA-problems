@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxScore(string s) {
+        int n=s.length();
+        string leftstr, rightstr;
+        int score=0;
+        for(int i=0;i<n-1;i++){
+//storing left string in leftstr and right string in rightstr.
+            leftstr=s.substr(0,i+1);
+            rightstr=s.substr(i+1);
+//counting no. of zeros and ones
+            int temp=count(leftstr.begin(),leftstr.end(),'0') + count(rightstr.begin(),rightstr.end(),'1'); 
+            if(temp>score){
+                score=temp;
+            }
+        }
+        return score;
+    }
+};
