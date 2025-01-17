@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool doesValidArrayExist(vector<int>& derived) {
+        int res=0;
+        for(int i=0;i<derived.size();i++){
+            res^=derived[i];
+        }
+        return res==0;  
+    }
+};
+//Logic- if derived array has possible original array then if we do  XOR of all element of derived array it will be 0 as all element is ocured twice.
+//Time complexity=O(n)
+//Space complexity=O(1)
