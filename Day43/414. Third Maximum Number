@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+//sorting the given array
+        sort(nums.begin(),nums.end()); 
+//checking condition if size is less than or equal to 2
+        if(nums.size()<=2){
+            return nums[nums.size()-1];
+        }
+        int index,count=0;
+        for(int i=(nums.size()-1);i>=0;i--){
+            if(i==0){   //if i reached to 0 then no third maximum exist, so return maximum value
+                index=nums.size()-1;
+                break;
+            }
+            if(nums[i]>nums[i-1]){   //condition for checking third makimum
+                count++;
+            }
+            if(count==2){   //if count ==2 then value previous to nums[i] is third maximum
+                index=i-1;
+                break;
+            }
+        }
+        return nums[index]; //returning third maximum value;
+    }
+};
