@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int dominantIndex(vector<int>& nums) {
+        int fmax= *max_element(nums.begin(),nums.end());
+        int index= distance(nums.begin(),max_element(nums.begin(),nums.end()));
+        int smax=INT_MIN;
+        for( int num : nums){
+            if(num!= fmax){
+                smax=max(smax,num);
+            }
+        }
+        if(fmax>=(smax*2)){
+            return index;
+        }
+        else{
+            return -1;
+        }
+    }
+};
