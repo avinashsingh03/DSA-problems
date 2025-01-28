@@ -1,0 +1,21 @@
+//here (values[i] + values[j] +i-j) can also be written as( value[i] + i) denoted as first and (value[j]-j) denoted as second;
+class Solution {
+public:
+    int maxScoreSightseeingPair(vector<int>& values) {
+        int n = values.size();
+        if(n<2) return 0;
+        int maxi=0;
+        //we take first max=0
+        int f = values[0];
+        //here we choose f as first element
+        for(int i=1; i<n; i++){
+            //starting from second as two num needed for pairs
+            int second=values[i]-i;
+            maxi=max(maxi,f+second);
+            //checking if max is greater than f and the values[i]-i
+            f=max(f,values[i]+i);
+            //if values[i] - i is greater than previous f thenit can be changed;
+        }
+        return maxi;
+    }
+};
