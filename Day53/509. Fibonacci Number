@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int fib(int n) {
+        if(n==0){
+            return 0;
+        }
+        if(n==1 || n==2 ){
+            return 1;
+        }
+        //calculating numbers other than 0th and first and second.
+        int num1=1,num2=1,num3;
+        for(int i=3;i<=n;i++){
+            num3=num1+num2;
+            num1=num2;
+            num2=num3;
+        }
+        return num3;
+    }
+};
