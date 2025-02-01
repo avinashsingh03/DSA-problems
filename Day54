@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool isArraySpecial(vector<int>& nums) {
+        if(nums.size()==1){
+            return true;
+        }
+        bool parity,paritycurr;
+        parity=(nums[0]%2==0)?true:false;
+        for(int i=1;i<nums.size();i++){
+            paritycurr=(nums[i]%2==0)?true:false;
+            if(parity==paritycurr){
+                return false;
+            }
+            parity=paritycurr;
+        }
+        return true; 
+    }
+};
