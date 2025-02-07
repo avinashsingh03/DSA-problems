@@ -1,0 +1,17 @@
+class Solution {
+public:
+vector<int> queryResults(int limit, vector<vector<int>>& queries) {
+    vector<int> ans;
+    unordered_map<int, int> labelToColorMap, colorToFreqMap;
+    for(auto q: queries){
+        if(labelToColorMap.find(q[0]) != labelToColorMap.end()){
+            colorToFreqMap[labelToColorMap[q[0]]]--;
+            if(colorToFreqMap[labelToColorMap[q[0]]] == 0) colorToFreqMap.erase(labelToColorMap[q[0]]);
+        }
+        colorToFreqMap[q[1]]++;
+        labelToColorMap[q[0]] = q[1];
+        ans.push_back(colorToFreqMap.size());
+    }
+    return ans;
+}
+};
