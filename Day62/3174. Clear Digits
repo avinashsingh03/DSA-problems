@@ -1,0 +1,13 @@
+class Solution(object):
+    def clearDigits(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        lst=[]
+        for i in s:
+            if (i.isdigit()==True):
+                lst.pop()
+            else:
+                lst.append(i)
+        return (str("".join(lst)))       
