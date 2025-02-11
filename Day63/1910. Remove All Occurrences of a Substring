@@ -1,0 +1,15 @@
+class Solution(object):
+    def removeOccurrences(self, s, part):
+        """
+        :type s: str
+        :type part: str
+        :rtype: str
+        """
+        len_part=len(part)
+        lst=[]
+        for i in s:
+            lst.append(i)
+            if(len(lst)>=len_part and lst[-(len_part):]==list(part)):
+                for j in range(len_part):
+                    lst.pop()
+        return "".join(lst)
