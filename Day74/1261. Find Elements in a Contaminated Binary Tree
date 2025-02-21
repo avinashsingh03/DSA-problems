@@ -1,0 +1,21 @@
+class FindElements {
+public:
+    unordered_map <int, bool> map;
+
+    void solve (TreeNode* root, int i) {
+        if (!root) return;
+        root->val = i;
+        map[i] = true;
+        solve (root->left, 2*i + 1);
+        solve(root->right, 2*i + 2);
+    }
+
+    FindElements(TreeNode* root) {
+        solve(root, 0);
+    }
+    
+    bool find(int target) {
+        if (map.find(target) != map.end()) return true;
+        return false;
+    }
+};
