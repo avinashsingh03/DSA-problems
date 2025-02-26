@@ -1,0 +1,30 @@
+class Solution(object):
+    def setZeroes(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
+        """
+        m=len(matrix)
+        n=len(matrix[0])
+        col=set()
+// indicating flag in first row corresponding to 0 in any column
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j]==0:
+                    col.add(j)
+                    matrix[i][j]=False
+//setting o in all required column
+        lstc=copy.deepcopy(matrix)
+        for x in range(m):
+            for y in list(col):
+                lstc[x][y]=0
+//setting 0 in all required row
+        lstr=copy.deepcopy(matrix)
+        for i in range(m):
+            if False in matrix[i]:
+                lstr[i]=[0]*n
+//mixing both matrix(changed row and changed column matrix)
+        for i in range(m):
+            for j in range(n):
+                if (lstc[i][j]==0 or lstr[i][j]==0):
+                    matrix[i][j]=0
