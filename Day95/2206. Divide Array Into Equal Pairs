@@ -1,0 +1,20 @@
+class Solution(object):
+    def divideArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        if len(nums)%2!=0:
+            return False
+        count={}
+        distinct=set(nums)
+        for i in nums:
+            if i in distinct:
+                count[i]=1
+                distinct.remove(i)
+            else:
+                count[i]=count[i]+1
+        for i in count:
+            if count[i]%2!=0:
+                return False
+        return True    
